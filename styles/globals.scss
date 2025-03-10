@@ -1,0 +1,525 @@
+// Variables
+$primary: #17a2b8;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+// Custom variables
+$border-radius: 0.5rem;
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+$transition: all 0.3s ease-in-out;
+
+// Gradient variables
+$gradient-primary: linear-gradient(135deg, #17a2b8 0%, #0dcaf0 100%);
+$gradient-secondary: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+$gradient-success: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+$gradient-info: linear-gradient(135deg, #17a2b8 0%, #0dcaf0 100%);
+$gradient-warning: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+$gradient-danger: linear-gradient(135deg, #dc3545 0%, #e35d6a 100%);
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// Import Sweetalert2
+@import 'sweetalert2/src/sweetalert2.scss';
+
+// Import Locomotive Scroll
+@import "locomotive-scroll/dist/locomotive-scroll.css";
+
+//---------------------------------------------
+// Basic Styles
+//---------------------------------------------
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  position: relative;
+  height: 100%;
+  color: #333;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root {
+  --sk-border-radius: 1rem;
+  --sk-text-custom-color: #0C1424;
+  --sk-grey-bg: #f5f7fa;
+  --swiper-theme-color: var(--bs-primary);
+  
+  // Light mode variables
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --card-bg: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.125);
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+  --footer-bg: #343a40;
+  --footer-text: #ffffff;
+}
+
+// Dark mode styles
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --border-color: rgba(255, 255, 255, 0.125);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --navbar-bg: rgba(30, 30, 30, 0.95);
+  --footer-bg: #0a0a0a;
+  --footer-text: #e0e0e0;
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .navbar, .nav-main {
+    background-color: var(--navbar-bg) !important;
+    border-color: var(--border-color) !important;
+  }
+  
+  .card, .dropdown-menu {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+  }
+  
+  .bg-light {
+    background-color: #1a1a1a !important;
+  }
+  
+  .bg-white {
+    background-color: var(--card-bg) !important;
+  }
+  
+  .text-muted {
+    color: #a0a0a0 !important;
+  }
+  
+  .border {
+    border-color: var(--border-color) !important;
+  }
+  
+  .dropdown-item {
+    color: var(--text-color);
+    
+    &:hover, &:focus {
+      background-color: rgba(23, 162, 184, 0.1);
+    }
+  }
+  
+  .form-control, .form-select {
+    background-color: #2a2a2a;
+    border-color: var(--border-color);
+    color: var(--text-color);
+    
+    &:focus {
+      background-color: #2a2a2a;
+      color: var(--text-color);
+    }
+  }
+  
+  .form-floating label {
+    color: #a0a0a0;
+  }
+}
+
+// Apply light mode styles by default
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.navbar, .nav-main {
+  background-color: var(--navbar-bg) !important;
+  border-color: var(--border-color) !important;
+}
+
+.card, .dropdown-menu {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+// Gradient styles
+.bg-gradient-primary {
+  background: $gradient-primary;
+}
+
+.bg-gradient-secondary {
+  background: $gradient-secondary;
+}
+
+.bg-gradient-success {
+  background: $gradient-success;
+}
+
+.bg-gradient-info {
+  background: $gradient-info;
+}
+
+.bg-gradient-warning {
+  background: $gradient-warning;
+}
+
+.bg-gradient-danger {
+  background: $gradient-danger;
+}
+
+.btn-gradient-primary {
+  background: $gradient-primary;
+  border: none;
+  color: white;
+  
+  &:hover {
+    background: linear-gradient(135deg, darken(#17a2b8, 5%) 0%, darken(#0dcaf0, 5%) 100%);
+    color: white;
+  }
+}
+
+.text-gradient {
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: $transition;
+  
+  &.btn-primary {
+    box-shadow: 0 4px 6px rgba($primary, 0.25);
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 8px rgba($primary, 0.3);
+    }
+  }
+}
+
+.card {
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
+  transition: $transition;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem var(--shadow-color);
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  .card-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+}
+
+section {
+  padding: 5rem 0;
+}
+
+//---------------------------------------------
+// Components
+//---------------------------------------------
+
+// Navbar styles
+.navbar-wrap {
+  .nav-main {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 1rem 2rem;
+    backdrop-filter: blur(10px);
+    
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: $primary;
+    }
+    
+    .nav-link {
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      position: relative;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: $gradient-primary;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      
+      &:hover:after,
+      &.active:after {
+        width: 80%;
+      }
+      
+      &.active {
+        color: $primary;
+      }
+    }
+  }
+}
+
+// Landing page styles
+.landing-page {
+  margin-top: 7rem;
+  position: relative;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba($primary, 0.05) 0%, rgba($primary, 0.1) 100%);
+    border-radius: 30% 0 0 70%;
+    z-index: -1;
+  }
+  
+  h1 {
+    font-weight: 800;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    
+    span {
+      background: $gradient-primary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  }
+  
+  .lead {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .btn-with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    
+    svg {
+      fill: currentColor;
+    }
+  }
+}
+
+// Services section
+.services-section {
+  background-color: var(--sk-grey-bg);
+  
+  .service-card {
+    text-align: center;
+    padding: 2.5rem;
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba($primary, 0.1) 0%, rgba($primary, 0.2) 100%);
+      border-radius: 50%;
+      color: $primary;
+      font-size: 2rem;
+    }
+    
+    h3 {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Brands section
+.brands-section {
+  .brand-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3rem;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: $gradient-primary;
+    }
+  }
+}
+
+// Swiper styles
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0;
+}
+
+.brandsSwiper {
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--card-bg);
+    border-radius: $border-radius;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    height: 120px;
+    transition: $transition;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px var(--shadow-color);
+    }
+  }
+}
+
+.testimonialsSwiper {
+  overflow: hidden;
+  
+  .swiper-slide {
+    padding: 1rem;
+  }
+  
+  .testimonial-card {
+    position: relative;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: $border-radius;
+    box-shadow: 0 0.5rem 1.5rem var(--shadow-color);
+    
+    &:before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba($primary, 0.1);
+      font-family: serif;
+      line-height: 1;
+    }
+    
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: 1.5rem;
+      
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 1rem;
+        background-color: #eee;
+      }
+      
+      .author-name {
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+      
+      .author-title {
+        font-size: 0.875rem;
+        color: $secondary;
+      }
+    }
+  }
+}
+
+// Contact section
+.contact-section {
+  position: relative;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    height: 60%;
+    background: linear-gradient(135deg, rgba($primary, 0.05) 0%, rgba($primary, 0.1) 100%);
+    border-radius: 0 50% 0 0;
+    z-index: -1;
+  }
+  
+  .form-control {
+    padding: 0.75rem 1.25rem;
+    border-radius: $border-radius;
+    border: 1px solid #e0e0e0;
+    box-shadow: none;
+    transition: $transition;
+    
+    &:focus {
+      border-color: rgba($primary, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+    }
+  }
+  
+  textarea.form-control {
+    min-height: 150px;
+  }
+}
+
+// Footer styles
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  
+  a {
+    color: var(--footer-text);
+    transition: $transition;
+    
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+// AOS animations
+[data-aos] {
+  pointer-events: none;
+  
+  &.aos-animate {
+    pointer-events: auto;
+  }
+} 

@@ -1,0 +1,30 @@
+{
+  "name": "easyfix-expert-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.2.1",
+    "gsap": "^3.12.5",
+    "locomotive-scroll": "^4.1.4",
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.67.0",
+    "sweetalert2": "^11.16.0",
+    "swiper": "^11.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.1.0",
+    "postcss": "^8.4.29",
+    "postcss-preset-env": "^9.1.3"
+  }
+} 
